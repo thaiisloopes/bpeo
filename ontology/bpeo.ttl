@@ -1,0 +1,488 @@
+@prefix : <http://purl.org/saeg/ontologies/bpeo#> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bbo: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <http://purl.org/saeg/ontologies/bpeo#> .
+
+<http://purl.org/saeg/ontologies/bpeo> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/NET/c4dm/event.owl#agent
+event:agent rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/NET/c4dm/event.owl#factor
+event:factor rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/NET/c4dm/event.owl#product
+event:product rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/NET/c4dm/event.owl#sub_event
+event:sub_event rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/NET/c4dm/event.owl#time
+event:time rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#activityExecutionStatus
+:activityExecutionStatus rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :related ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain :ActivityExecution ;
+                         rdfs:range :ActivityExecutionStatus ;
+                         rdfs:comment "Defines the current status of a given activity execution"@en ;
+                         rdfs:label "activity execution status"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#childExecution
+:childExecution rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf event:sub_event ,
+                                   :childExecutionTransitive ;
+                owl:propertyChainAxiom ( :flow
+                                         :step
+                                       ) ;
+                rdfs:comment "Relates a process execution and its activity executions"@en ;
+                rdfs:label "child execution"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#childExecutionTransitive
+:childExecutionTransitive rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :related ;
+                          rdf:type owl:TransitiveProperty ;
+                          rdfs:domain :CompoundExecution ;
+                          rdfs:range :ActivityExecution ;
+                          rdfs:comment "Relates a process execution and its direct and indirect activity executions"@en ;
+                          rdfs:label "child execution transitive"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#executor
+:executor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf event:agent ,
+                             :related ;
+          rdfs:domain :ActivityExecution ;
+          rdfs:range :User ;
+          owl:propertyChainAxiom ( :childExecution
+                                   :executor
+                                 ) ;
+          rdfs:comment "Defines a relationship between ActivityExecution and a Performer"@en ;
+          rdfs:label "executor"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#flow
+:flow rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :related ;
+      rdf:type owl:FunctionalProperty ,
+               owl:InverseFunctionalProperty ;
+      rdfs:domain :CompoundExecution ;
+      rdfs:range :Flow ;
+      rdfs:comment "A particular execution path for a given process execution"@en ;
+      rdfs:label "flow"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#flowStatus
+:flowStatus rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :related ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Flow ;
+            rdfs:range :FlowStatus ;
+            rdfs:comment "Defines the current status of a given flow"@en ;
+            rdfs:label "flow status"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#inputArgument
+:inputArgument rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf event:factor ,
+                                  :related ;
+               rdf:type owl:InverseFunctionalProperty ;
+               rdfs:domain :ActivityExecution ;
+               rdfs:range :Argument ;
+               rdfs:comment "Given input arguments of an activity execution" ;
+               rdfs:label "input argument" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#outputArgument
+:outputArgument rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf event:product ,
+                                   :related ;
+                rdf:type owl:InverseFunctionalProperty ;
+                rdfs:domain :ActivityExecution ;
+                rdfs:range :Argument ;
+                rdfs:comment "Output arguments of an activity execution" ;
+                rdfs:label "output argument" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#related
+:related rdf:type owl:ObjectProperty ;
+         rdfs:domain owl:Thing ;
+         rdfs:range owl:Thing .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#source
+:source rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :sourceTransitive ;
+        owl:inverseOf :target ;
+        rdf:type owl:AsymmetricProperty ;
+        rdfs:comment "Relates a flow to its source flow"@en ;
+        rdfs:label "source"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#sourceTransitive
+:sourceTransitive rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :related ;
+                  owl:inverseOf :targetTransitive ;
+                  rdf:type owl:TransitiveProperty ;
+                  rdfs:domain :Flow ;
+                  rdfs:range :Flow ;
+                  rdfs:comment "Relates a flow to its direct and indirect source flow"@en ;
+                  rdfs:label "source transitive" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#step
+:step rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :related ;
+      rdf:type owl:InverseFunctionalProperty ;
+      rdfs:domain :Flow ;
+      rdfs:range :ActivityExecution ;
+      rdfs:comment "A set of ActivityExecution which composes a Flow"@en ;
+      rdfs:label "step"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#target
+:target rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :targetTransitive ;
+        rdf:type owl:AsymmetricProperty ;
+        rdfs:comment "Relates a flow to its target flow"@en ;
+        rdfs:label "target"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#targetTransitive
+:targetTransitive rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :related ;
+                  rdf:type owl:TransitiveProperty ;
+                  rdfs:domain :Flow ;
+                  rdfs:range :Flow ;
+                  rdfs:comment "Relates a flow to its direct and indirect target flow"@en ;
+                  rdfs:label "target transitive"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#value
+:value rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :related ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Argument ;
+       rdfs:range owl:Thing ;
+       rdfs:comment "References the value of a given Argument"@en ;
+       rdfs:label "value"@en .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:ObjectProperty .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#plays
+bbo:plays rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/NET/c4dm/event.owl#Event
+event:Event rdf:type owl:Class .
+
+
+###  http://purl.org/NET/c4dm/timeline.owl#TemporalEntity
+<http://purl.org/NET/c4dm/timeline.owl#TemporalEntity> rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ActivityExecution
+:ActivityExecution rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( :CompoundExecution
+                                                       :TaskExecution
+                                                     )
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :activityExecutionStatus ;
+                                         owl:someValuesFrom owl:Thing
+                                       ] ;
+                   rdfs:subClassOf event:Event ,
+                                   :DomainEntity ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty event:time ;
+                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                   ] ;
+                   rdfs:comment "Execution of an activity which means being a task or a process execution" ;
+                   rdfs:label "Activity Execution" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ActivityExecutionStatus
+:ActivityExecutionStatus rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Class ;
+                                               owl:oneOf ( :definingArguments
+                                                           :executing
+                                                           :terminated
+                                                           :terminatedByException
+                                                         )
+                                             ] ;
+                         rdfs:subClassOf :DomainEntity ;
+                         rdfs:comment "An enum list of possible status for a given ActivityExecution"@en ;
+                         rdfs:label "ActivityExecutionStatus"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#Argument
+:Argument rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :value ;
+                                owl:someValuesFrom owl:Thing
+                              ] ;
+          rdfs:subClassOf :DomainEntity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdf:type ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass bbo:Resource
+                          ] ;
+          rdfs:comment "Activities execution's parameters"@en ;
+          rdfs:label "Argument"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ChildExecution
+:ChildExecution rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty [ owl:inverseOf :childExecution
+                                                     ] ;
+                                      owl:someValuesFrom owl:Thing
+                                    ] ;
+                rdfs:comment "An auxiliar class defined in order to make child execution relation restrictions"@en ;
+                rdfs:label "Child Execution"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#CompoundExecution
+:CompoundExecution rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( :ProcessExecution
+                                                       :SubProcessExecution
+                                                     )
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :flow ;
+                                         owl:someValuesFrom owl:Thing
+                                       ] ;
+                   rdfs:subClassOf :ActivityExecution ;
+                   owl:disjointWith :TaskExecution ;
+                   rdfs:comment "A particular compound (non-atomic) execution" ;
+                   rdfs:label "Compound (non-atomic) execution" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#DomainEntity
+:DomainEntity rdf:type owl:Class ;
+              rdfs:comment "A global class" ;
+              rdfs:label "Domain Entity" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#Flow
+:Flow rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :flowStatus ;
+                            owl:someValuesFrom owl:Thing
+                          ] ;
+      rdfs:subClassOf :DomainEntity ;
+      rdfs:comment "A specific flow to be executed in a business process execution" ;
+      rdfs:label "Flow" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#FlowStatus
+:FlowStatus rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:oneOf ( :blocked
+                                              :finished
+                                              :interrupted
+                                              :ready
+                                              :running
+                                            )
+                                ] ;
+            rdfs:subClassOf :DomainEntity ;
+            rdfs:comment "An enum list of possible status for a given flow."@en ;
+            rdfs:label "FlowStatus"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ProcessExecution
+:ProcessExecution rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :ActivityExecution
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty rdf:type ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass bbo:Process
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ,
+                                      [ owl:intersectionOf ( :CompoundExecution
+                                                             [ rdf:type owl:Class ;
+                                                               owl:complementOf :ChildExecution
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  owl:disjointWith :SubProcessExecution ;
+                  rdfs:comment "A particular process execution"@en ;
+                  rdfs:label "Process Execution"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#SubProcessExecution
+:SubProcessExecution rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( :ActivityExecution
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty rdf:type ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass bbo:SubProcess
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ,
+                                         [ owl:intersectionOf ( :ChildExecution
+                                                                :CompoundExecution
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:comment "A particular subprocess execution in a process execution\""@en ;
+                     rdfs:label "SubProcess Execution"@en .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#TaskExecution
+:TaskExecution rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :ActivityExecution
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty rdf:type ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass bbo:Task
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :ChildExecution ;
+               rdfs:comment "A particular execution of a task in a particular compound execution" ;
+               rdfs:label "Task (atomic) execution" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#User
+:User rdf:type owl:Class ;
+      owl:equivalentClass foaf:Agent ,
+                          bbo:Agent ;
+      rdfs:subClassOf :DomainEntity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty rdf:type ;
+                        owl:someValuesFrom bbo:Role
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty bbo:plays ;
+                        owl:someValuesFrom bbo:Role
+                      ] ;
+      rdfs:comment "A person responsible for the activity execution" ;
+      rdfs:label "Performer" .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Activity
+bbo:Activity rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Agent
+bbo:Agent rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Process
+bbo:Process rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Resource
+bbo:Resource rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role
+bbo:Role rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#SubProcess
+bbo:SubProcess rdf:type owl:Class ;
+               rdfs:subClassOf bbo:Activity .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task
+bbo:Task rdf:type owl:Class ;
+         rdfs:subClassOf bbo:Activity .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/saeg/ontologies/bpeo#blocked
+:blocked rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#definingArguments
+:definingArguments rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#executing
+:executing rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#finished
+:finished rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#interrupted
+:interrupted rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ready
+:ready rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#running
+:running rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#terminated
+:terminated rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#terminatedByException
+:terminatedByException rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActivityExecution
+                :ActivityExecutionStatus
+                :Argument
+                :Flow
+                :FlowStatus
+                :User
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

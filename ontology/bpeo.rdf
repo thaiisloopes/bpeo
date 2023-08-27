@@ -1,0 +1,704 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/saeg/ontologies/bpeo#"
+     xml:base="http://purl.org/saeg/ontologies/bpeo"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:bbo="https://www.irit.fr/recherches/MELODI/ontologies/BBO#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://purl.org/saeg/ontologies/bpeo"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#agent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#agent"/>
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#factor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#factor"/>
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#product -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#product"/>
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#sub_event -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#sub_event"/>
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#time -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#time"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#activityExecutionStatus -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#activityExecutionStatus">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecutionStatus"/>
+        <rdfs:comment xml:lang="en">Defines the current status of a given activity execution</rdfs:comment>
+        <rdfs:label xml:lang="en">activity execution status</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#childExecution -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#childExecution">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/c4dm/event.owl#sub_event"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#childExecutionTransitive"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#flow"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#step"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Relates a process execution and its activity executions</rdfs:comment>
+        <rdfs:label xml:lang="en">child execution</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#childExecutionTransitive -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#childExecutionTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#CompoundExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:comment xml:lang="en">Relates a process execution and its direct and indirect activity executions</rdfs:comment>
+        <rdfs:label xml:lang="en">child execution transitive</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#executor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#executor">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/c4dm/event.owl#agent"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#User"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#childExecution"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#executor"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Defines a relationship between ActivityExecution and a Performer</rdfs:comment>
+        <rdfs:label xml:lang="en">executor</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#flow -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#flow">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#CompoundExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:comment xml:lang="en">A particular execution path for a given process execution</rdfs:comment>
+        <rdfs:label xml:lang="en">flow</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#flowStatus -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#flowStatus">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#FlowStatus"/>
+        <rdfs:comment xml:lang="en">Defines the current status of a given flow</rdfs:comment>
+        <rdfs:label xml:lang="en">flow status</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#inputArgument -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#inputArgument">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/c4dm/event.owl#factor"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#Argument"/>
+        <rdfs:comment>Given input arguments of an activity execution</rdfs:comment>
+        <rdfs:label>input argument</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#outputArgument -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#outputArgument">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/c4dm/event.owl#product"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#Argument"/>
+        <rdfs:comment>Output arguments of an activity execution</rdfs:comment>
+        <rdfs:label>output argument</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#related -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#related">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#source -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#source">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#sourceTransitive"/>
+        <owl:inverseOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#target"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Relates a flow to its source flow</rdfs:comment>
+        <rdfs:label xml:lang="en">source</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#sourceTransitive -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#sourceTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <owl:inverseOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#targetTransitive"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:comment xml:lang="en">Relates a flow to its direct and indirect source flow</rdfs:comment>
+        <rdfs:label>source transitive</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#step -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#step">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <rdfs:comment xml:lang="en">A set of ActivityExecution which composes a Flow</rdfs:comment>
+        <rdfs:label xml:lang="en">step</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#target -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#target">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#targetTransitive"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Relates a flow to its target flow</rdfs:comment>
+        <rdfs:label xml:lang="en">target</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#targetTransitive -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#targetTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:range rdf:resource="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+        <rdfs:comment xml:lang="en">Relates a flow to its direct and indirect target flow</rdfs:comment>
+        <rdfs:label xml:lang="en">target transitive</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#value -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/saeg/ontologies/bpeo#value">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/saeg/ontologies/bpeo#Argument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">References the value of a given Argument</rdfs:comment>
+        <rdfs:label xml:lang="en">value</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#plays -->
+
+    <owl:ObjectProperty rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#plays"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#Event -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Event"/>
+
+
+
+    <!-- http://purl.org/NET/c4dm/timeline.owl#TemporalEntity -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/timeline.owl#TemporalEntity"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#ActivityExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecution">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#CompoundExecution"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#TaskExecution"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/saeg/ontologies/bpeo#activityExecutionStatus"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#time"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Execution of an activity which means being a task or a process execution</rdfs:comment>
+        <rdfs:label>Activity Execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#ActivityExecutionStatus -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecutionStatus">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#definingArguments"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#executing"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#terminated"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#terminatedByException"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:comment xml:lang="en">An enum list of possible status for a given ActivityExecution</rdfs:comment>
+        <rdfs:label xml:lang="en">ActivityExecutionStatus</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#Argument -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#Argument">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/saeg/ontologies/bpeo#value"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Activities execution&apos;s parameters</rdfs:comment>
+        <rdfs:label xml:lang="en">Argument</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#ChildExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#ChildExecution">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#childExecution"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">An auxiliar class defined in order to make child execution relation restrictions</rdfs:comment>
+        <rdfs:label xml:lang="en">Child Execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#CompoundExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#CompoundExecution">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ProcessExecution"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#SubProcessExecution"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/saeg/ontologies/bpeo#flow"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+        <owl:disjointWith rdf:resource="http://purl.org/saeg/ontologies/bpeo#TaskExecution"/>
+        <rdfs:comment>A particular compound (non-atomic) execution</rdfs:comment>
+        <rdfs:label>Compound (non-atomic) execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#DomainEntity -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#DomainEntity">
+        <rdfs:comment>A global class</rdfs:comment>
+        <rdfs:label>Domain Entity</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#Flow -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#Flow">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/saeg/ontologies/bpeo#flowStatus"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:comment>A specific flow to be executed in a business process execution</rdfs:comment>
+        <rdfs:label>Flow</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#FlowStatus -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#FlowStatus">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#blocked"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#finished"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#interrupted"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ready"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#running"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:comment xml:lang="en">An enum list of possible status for a given flow.</rdfs:comment>
+        <rdfs:label xml:lang="en">FlowStatus</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#ProcessExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#ProcessExecution">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Process"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#CompoundExecution"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#ChildExecution"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://purl.org/saeg/ontologies/bpeo#SubProcessExecution"/>
+        <rdfs:comment xml:lang="en">A particular process execution</rdfs:comment>
+        <rdfs:label xml:lang="en">Process Execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#SubProcessExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#SubProcessExecution">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SubProcess"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ChildExecution"/>
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#CompoundExecution"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A particular subprocess execution in a process execution&quot;</rdfs:comment>
+        <rdfs:label xml:lang="en">SubProcess Execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#TaskExecution -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#TaskExecution">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#ChildExecution"/>
+        <rdfs:comment>A particular execution of a task in a particular compound execution</rdfs:comment>
+        <rdfs:label>Task (atomic) execution</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#User -->
+
+    <owl:Class rdf:about="http://purl.org/saeg/ontologies/bpeo#User">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <owl:equivalentClass rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Agent"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/saeg/ontologies/bpeo#DomainEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <owl:someValuesFrom rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#plays"/>
+                <owl:someValuesFrom rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A person responsible for the activity execution</rdfs:comment>
+        <rdfs:label>Performer</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Activity -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Activity"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Agent -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Agent"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Process -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Process"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Resource -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Resource"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#SubProcess -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SubProcess">
+        <rdfs:subClassOf rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Activity"/>
+    </owl:Class>
+
+
+
+    <!-- https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task -->
+
+    <owl:Class rdf:about="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task">
+        <rdfs:subClassOf rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Activity"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#blocked -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#blocked"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#definingArguments -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#definingArguments"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#executing -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#executing"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#finished -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#finished"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#interrupted -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#interrupted"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#ready -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#ready"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#running -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#running"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#terminated -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#terminated"/>
+
+
+
+    <!-- http://purl.org/saeg/ontologies/bpeo#terminatedByException -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/saeg/ontologies/bpeo#terminatedByException"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecution"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#ActivityExecutionStatus"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#Argument"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#Flow"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#FlowStatus"/>
+            <rdf:Description rdf:about="http://purl.org/saeg/ontologies/bpeo#User"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
