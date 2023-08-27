@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.com/"
+     xml:base="http://www.example.com/"
+     xmlns:BBO="https://www.irit.fr/recherches/MELODI/ontologies/BBO#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+    <owl:Ontology rdf:about="http://www.example.com">
+        <owl:imports rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com#expression1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#expression1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Expression"/>
+        <BBO:name>APROVADO</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#inputOutputSpecification -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#inputOutputSpecification">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#InputOutputSpecification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#process1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#process1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Process"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#subprocess1"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task1"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task2"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task3"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task4"/>
+        <BBO:name>Submissão de artigo</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#resource1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#resource1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Resource"/>
+        <BBO:name>Artigo</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#role1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#role1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#subprocess1"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task5"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task6"/>
+        <BBO:name>Revisor</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#role2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#role2">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task2"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task3"/>
+        <BBO:name>PcChair</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#role3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#role3">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Role"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task1"/>
+        <BBO:is_responsibleFor rdf:resource="http://www.example.com#task4"/>
+        <BBO:name>Autor</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#sequenceFlow0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#sequenceFlow0">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SequenceFlow"/>
+        <BBO:has_sourceRef rdf:resource="http://www.example.com#task1"/>
+        <BBO:has_targetRef rdf:resource="http://www.example.com#task2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#sequenceFlow1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#sequenceFlow1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SequenceFlow"/>
+        <BBO:has_sourceRef rdf:resource="http://www.example.com#task2"/>
+        <BBO:has_targetRef rdf:resource="http://www.example.com#subprocess1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#sequenceFlow2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#sequenceFlow2">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SequenceFlow"/>
+        <BBO:has_sourceRef rdf:resource="http://www.example.com#subprocess1"/>
+        <BBO:has_targetRef rdf:resource="http://www.example.com#task3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#sequenceFlow4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#sequenceFlow4">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SequenceFlow"/>
+        <BBO:has_sourceRef rdf:resource="http://www.example.com#task3"/>
+        <BBO:has_targetRef rdf:resource="http://www.example.com#task4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#sequenceFlow5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#sequenceFlow5">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SequenceFlow"/>
+        <BBO:has_sourceRef rdf:resource="http://www.example.com#task5"/>
+        <BBO:has_targetRef rdf:resource="http://www.example.com#task6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#subprocess1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#subprocess1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#SubProcess"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task5"/>
+        <BBO:has_flowElements rdf:resource="http://www.example.com#task6"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:has_sequenceFlow rdf:resource="http://www.example.com#sequenceFlow1"/>
+        <BBO:name>Revisar artigo</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task1">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:name>Submeter artigo</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task2">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:has_sequenceFlow rdf:resource="http://www.example.com#sequenceFlow0"/>
+        <BBO:name>Alocar revisores</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task3">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:has_sequenceFlow rdf:resource="http://www.example.com#sequenceFlow2"/>
+        <BBO:name>Selecionar o artigo</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task4">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:has_sequenceFlow rdf:resource="http://www.example.com#sequenceFlow4"/>
+        <BBO:name>Submeter versão final</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task5">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:name>Obter artigo para avaliar</BBO:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.com#task6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.com#task6">
+        <rdf:type rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/BBO#Task"/>
+        <BBO:has_ioSpecification rdf:resource="http://www.example.com#inputOutputSpecification"/>
+        <BBO:has_sequenceFlow rdf:resource="http://www.example.com#sequenceFlow5"/>
+        <BBO:name>Submeter avaliação do artigo</BBO:name>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

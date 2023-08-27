@@ -1,0 +1,1025 @@
+@prefix : <http://api.stardog.com/> .
+@prefix so: <https://schema.org/> .
+@prefix bbo: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bpeo: <http://purl.org/saeg/ontologies/bpeo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix stardog: <tag:stardog:api:> .
+@base <http://api.stardog.com/> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/NET/c4dm/event.owl#time
+event:time rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#activityStatus
+bpeo:activityStatus rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#executor
+bpeo:executor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#flow
+bpeo:flow rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#flowStatus
+bpeo:flowStatus rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#inputArgument
+bpeo:inputArgument rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#outputArgument
+bpeo:outputArgument rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#source
+bpeo:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#step
+bpeo:step rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#target
+bpeo:target rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#value
+bpeo:value rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2006/time#at
+time:at rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2006/time#end
+time:end rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2006/time#start
+time:start rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/#name
+<http://xmlns.com/foaf/0.1/#name> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#name
+bbo:name rdf:type owl:AnnotationProperty .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#plays
+bbo:plays rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/saeg/ontologies/bpeo#Argument
+bpeo:Argument rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#Flow
+bpeo:Flow rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#Performer
+bpeo:Performer rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#ProcessExecution
+bpeo:ProcessExecution rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#SubProcessExecution
+bpeo:SubProcessExecution rdf:type owl:Class .
+
+
+###  http://purl.org/saeg/ontologies/bpeo#TaskExecution
+bpeo:TaskExecution rdf:type owl:Class .
+
+
+###  http://www.example.com#process1
+<http://www.example.com#process1> rdf:type owl:Class .
+
+
+###  http://www.example.com#resource1
+<http://www.example.com#resource1> rdf:type owl:Class .
+
+
+###  http://www.example.com#role1
+<http://www.example.com#role1> rdf:type owl:Class .
+
+
+###  http://www.example.com#role2
+<http://www.example.com#role2> rdf:type owl:Class .
+
+
+###  http://www.example.com#role3
+<http://www.example.com#role3> rdf:type owl:Class .
+
+
+###  http://www.example.com#subprocess1
+<http://www.example.com#subprocess1> rdf:type owl:Class .
+
+
+###  http://www.example.com#task1
+<http://www.example.com#task1> rdf:type owl:Class .
+
+
+###  http://www.example.com#task2
+<http://www.example.com#task2> rdf:type owl:Class .
+
+
+###  http://www.example.com#task3
+<http://www.example.com#task3> rdf:type owl:Class .
+
+
+###  http://www.example.com#task4
+<http://www.example.com#task4> rdf:type owl:Class .
+
+
+###  http://www.example.com#task5
+<http://www.example.com#task5> rdf:type owl:Class .
+
+
+###  http://www.example.com#task6
+<http://www.example.com#task6> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#Instant
+time:Instant rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#Interval
+time:Interval rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV
+<http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> rdf:type owl:NamedIndividual ,
+                                                                                     bpeo:Argument ,
+                                                                                     <http://www.example.com#resource1> ;
+                                                                            bpeo:value "BPEO: Ontologia OWL para registro de execução (log) de processos de negócio" ;
+                                                                            bbo:name "BPEO: Ontologia OWL para registro de execução (log) de processos de negócio" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8
+<http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> rdf:type owl:NamedIndividual ,
+                                                                                     bpeo:Argument ,
+                                                                                     <http://www.example.com#resource1> ;
+                                                                            bpeo:value "BBO: Ontologia OWL para registro de processos de negócio" ;
+                                                                            bbo:name "BBO: Ontologia OWL para registro de processos de negócio" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS
+<http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> rdf:type owl:NamedIndividual ,
+                                                                                     bpeo:Argument ,
+                                                                                     <http://www.example.com#resource1> ;
+                                                                            bpeo:value "Event Ontology: Ontologia OWL para registro de eventos" ;
+                                                                            bbo:name "Event Ontology: Ontologia OWL para registro de eventos" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC
+<http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task1/executions/01H85VY0CRHE5AJJVVNWVBN5TH> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task2/executions/01H85W3XZE7G8135S1ME7VJJ5R> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task3/executions/01H85X23CWM57YG6VPBPNNQ8M0> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task4/executions/01H85X58C5WJ4K8SDAH8473NYN> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M638X0
+<http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M638X0> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WNA9EJBSEQ6XFD7DB9SVZ> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WQ441HNXKA6SQ6HY72MQ3> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63BHP
+<http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63BHP> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85W92GTBY5YX3TNYD9JF64P> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WCJYTPBSG86S6Z14ESXJ9> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63DE8
+<http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63DE8> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WGVMWNBT0GFB1FF699W0P> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WK1244RR3V7WY1CB5FCXS> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX
+<http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "RUNNING" ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/subprocesses/subprocess1/executions/01H863RA302G1DZ2T0K6R0EH1N> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task1/executions/01H8634J7CTMWZ917YPZ5WYDWQ> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task2/executions/01H8636GX4P5SGE60SYJKYJJQB> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX16X
+<http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX16X> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "RUNNING" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863DBF3ZV6C3MG735W1VBYW> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task6/executions/01H863H5ZVKZM38M1XQ5YC6X72> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX6ZY
+<http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX6ZY> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "RUNNING" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863BRC9SGKG1CXYVCNG36K8> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYXQRW
+<http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYXQRW> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "RUNNING" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863A20Y91894QQARGRSPSGB> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77
+<http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "INTERRUPTED" ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/subprocesses/subprocess1/executions/01H865P2543XTW5VAFGR1MAQXM> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task1/executions/01H86525XDQD39TJEDN1B6H7BA> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task2/executions/01H8654NSR9D65SSYXVABKFD3P> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC0SR
+<http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC0SR> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8656M86H1Q87KNC0JE3920B> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865E2ZH7G6PKAYBGYFQR6ZV> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC8JV
+<http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC8JV> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "FINISHED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8658X9SKPJ6QZFPVY43VJQW> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865FBQ9NC8J4GNYQTN8M39X> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVCRRP
+<http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVCRRP> rdf:type owl:NamedIndividual ,
+                                                                                 bpeo:Flow ;
+                                                                        bpeo:flowStatus "INTERRUPTED" ;
+                                                                        bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> ;
+                                                                        bpeo:step <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8657T7BPMJN0AYS1178Y9ES> ,
+                                                                                  <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865GMJQ62CJ2GK36R6WWE0N> ;
+                                                                        bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0
+<http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Bianca Monteiro" ;
+                                                                             bbo:name "Bianca Monteiro" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H85TG9NCXWVJH4MBVG2X9B7V
+<http://purl.org/saeg/ontologies/bpeo/performers/01H85TG9NCXWVJH4MBVG2X9B7V> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Caroline Castro" ;
+                                                                             bbo:name "Caroline Castro" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H85TGWP4EZMZN7H6JGH7CV0H
+<http://purl.org/saeg/ontologies/bpeo/performers/01H85TGWP4EZMZN7H6JGH7CV0H> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Lucas Machado" ;
+                                                                             bbo:name "Lucas Machado" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908
+<http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role2> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Lana Dias" ;
+                                                                             bbo:name "Lana Dias" ;
+                                                                             bbo:plays <http://www.example.com#role2> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9
+<http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role3> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Bianca Freitas" ;
+                                                                             bbo:name "Bianca Freitas" ;
+                                                                             bbo:plays <http://www.example.com#role3> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3
+<http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role3> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Nina Simoes" ;
+                                                                             bbo:name "Nina Simoes" ;
+                                                                             bbo:plays <http://www.example.com#role3> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H
+<http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Eduardo Coutinho" ;
+                                                                             bbo:name "Eduardo Coutinho" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H861M8TXKJYFF5C9563ZA6F8
+<http://purl.org/saeg/ontologies/bpeo/performers/01H861M8TXKJYFF5C9563ZA6F8> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Lena Souza" ;
+                                                                             bbo:name "Lena Souza" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H864BQKZR6PEK8H4CQTXZPZM
+<http://purl.org/saeg/ontologies/bpeo/performers/01H864BQKZR6PEK8H4CQTXZPZM> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role3> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Barbara Menani" ;
+                                                                             bbo:name "Barbara Menani" ;
+                                                                             bbo:plays <http://www.example.com#role3> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H864CG6QYDHSEGCZC7B2T70D
+<http://purl.org/saeg/ontologies/bpeo/performers/01H864CG6QYDHSEGCZC7B2T70D> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role2> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Helio Garcia" ;
+                                                                             bbo:name "Helio Garcia" ;
+                                                                             bbo:plays <http://www.example.com#role2> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H864D8VR9PAD3JHFC4A8819E
+<http://purl.org/saeg/ontologies/bpeo/performers/01H864D8VR9PAD3JHFC4A8819E> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Sabrina Silva" ;
+                                                                             bbo:name "Sabrina Silva" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/performers/01H864DV19YC9BJF0PGDSH7YBV
+<http://purl.org/saeg/ontologies/bpeo/performers/01H864DV19YC9BJF0PGDSH7YBV> rdf:type owl:NamedIndividual ,
+                                                                                      bpeo:Performer ,
+                                                                                      <http://www.example.com#role1> ;
+                                                                             <http://xmlns.com/foaf/0.1/#name> "Elaine Moreira" ;
+                                                                             bbo:name "Elaine Moreira" ;
+                                                                             bbo:plays <http://www.example.com#role1> .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> rdf:type owl:NamedIndividual ,
+                                                                                                         bpeo:ProcessExecution ,
+                                                                                                         <http://www.example.com#process1> ;
+                                                                                                event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85TPDEEFSDF2XDYZ726KDN5> ;
+                                                                                                bpeo:activityStatus "TERMINATED" ;
+                                                                                                bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9> ;
+                                                                                                bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> ;
+                                                                                                bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                bbo:name "Submissao do artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE> rdf:type owl:NamedIndividual ,
+                                                                                                         bpeo:ProcessExecution ,
+                                                                                                         <http://www.example.com#process1> ;
+                                                                                                event:time <http://purl.org/saeg/ontologies/bpeo/times/01H862QVMVM6ABZ7HCVAAT79PZ> ;
+                                                                                                bpeo:activityStatus "EXECUTING" ;
+                                                                                                bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3> ;
+                                                                                                bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX> ;
+                                                                                                bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                bbo:name "Submissao do artigo BBO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG> rdf:type owl:NamedIndividual ,
+                                                                                                         bpeo:ProcessExecution ,
+                                                                                                         <http://www.example.com#process1> ;
+                                                                                                event:time <http://purl.org/saeg/ontologies/bpeo/times/01H864H6403VN113HVKF5ZTBJN> ;
+                                                                                                bpeo:activityStatus "TERMINATED_BY_EXCEPTION" ;
+                                                                                                bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864BQKZR6PEK8H4CQTXZPZM> ;
+                                                                                                bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H865S0R7AV9JGVQMA2NNPN77> ;
+                                                                                                bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                bbo:name "Submissao do artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                        bpeo:SubProcessExecution ,
+                                                                                                                                                                        <http://www.example.com#subprocess1> ;
+                                                                                                                                                               event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85ZZA50DCKRN50C632J9YQE> ;
+                                                                                                                                                               bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                               bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9> ;
+                                                                                                                                                               bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M638X0> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63BHP> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63DE8> ;
+                                                                                                                                                               bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                               bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                               bbo:name "Revisar artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task1/executions/01H85VY0CRHE5AJJVVNWVBN5TH
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task1/executions/01H85VY0CRHE5AJJVVNWVBN5TH> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task1> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85VY0CXXNNJ6N9X91CB2TSJ> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Submeter artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task2/executions/01H85W3XZE7G8135S1ME7VJJ5R
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task2/executions/01H85W3XZE7G8135S1ME7VJJ5R> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task2> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85W3XZEB4K5JZ4288R09RAY> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Alocar Revisores para o artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task3/executions/01H85X23CWM57YG6VPBPNNQ8M0
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task3/executions/01H85X23CWM57YG6VPBPNNQ8M0> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task3> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85X23CWC8GS9M3VNK8CB68E> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Selecionar artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task4/executions/01H85X58C5WJ4K8SDAH8473NYN
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task4/executions/01H85X58C5WJ4K8SDAH8473NYN> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task4> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85X58C67Z0DM0KJM7RCGHFM> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Submeter versão final do artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85W92GTBY5YX3TNYD9JF64P
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85W92GTBY5YX3TNYD9JF64P> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85W92GTQ3MDS941DJ3DE3YB> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Obter artigo BPEO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WGVMWNBT0GFB1FF699W0P
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WGVMWNBT0GFB1FF699W0P> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85WGVMW3ZWC8EW781BFE9EM> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TG9NCXWVJH4MBVG2X9B7V> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Obter artigo BPEO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WNA9EJBSEQ6XFD7DB9SVZ
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WNA9EJBSEQ6XFD7DB9SVZ> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85WNA9EH8PCRAVSJSG6GS2N> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TGWP4EZMZN7H6JGH7CV0H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Obter artigo BPEO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WCJYTPBSG86S6Z14ESXJ9
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WCJYTPBSG86S6Z14ESXJ9> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85WCJYT66F4RHZ96DEQTQDD> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WK1244RR3V7WY1CB5FCXS
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WK1244RR3V7WY1CB5FCXS> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85WK124X5XRKSMYKAXGCC92> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TG9NCXWVJH4MBVG2X9B7V> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WQ441HNXKA6SQ6HY72MQ3
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WQ441HNXKA6SQ6HY72MQ3> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H85WQ441WMMV3WCFKA3GM61S> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TGWP4EZMZN7H6JGH7CV0H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/subprocesses/subprocess1/executions/01H863RA302G1DZ2T0K6R0EH1N
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/subprocesses/subprocess1/executions/01H863RA302G1DZ2T0K6R0EH1N> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                        bpeo:SubProcessExecution ,
+                                                                                                                                                                        <http://www.example.com#subprocess1> ;
+                                                                                                                                                               event:time <http://purl.org/saeg/ontologies/bpeo/times/01H863RA332DJMT1MT51JFSDMG> ;
+                                                                                                                                                               bpeo:activityStatus "EXECUTING" ;
+                                                                                                                                                               bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3> ;
+                                                                                                                                                               bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX16X> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX6ZY> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYXQRW> ;
+                                                                                                                                                               bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                               bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                               bbo:name "Revisar artigo BPEO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task1/executions/01H8634J7CTMWZ917YPZ5WYDWQ
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task1/executions/01H8634J7CTMWZ917YPZ5WYDWQ> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task1> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8634J7RKTWGM9TC8YKEGG2V> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Submeter artigo BBO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task2/executions/01H8636GX4P5SGE60SYJKYJJQB
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task2/executions/01H8636GX4P5SGE60SYJKYJJQB> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task2> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8636GX5RWEHHB39HCJAVFB1> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Alocar revisores para o artigo BBO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863A20Y91894QQARGRSPSGB
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863A20Y91894QQARGRSPSGB> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H863A20YCBVAPG3KN87JRR7A> ;
+                                                                                                                                                  bpeo:activityStatus "EXECUTING" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Obter o artigo BBO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863BRC9SGKG1CXYVCNG36K8
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863BRC9SGKG1CXYVCNG36K8> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H863BRC9WZ3WWNVB77R0N7HC> ;
+                                                                                                                                                  bpeo:activityStatus "EXECUTING" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861M8TXKJYFF5C9563ZA6F8> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Obter o artigo BBO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863DBF3ZV6C3MG735W1VBYW
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863DBF3ZV6C3MG735W1VBYW> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H863DBF3HQ74PRVPBHVHJGYY> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Obter o artigo BBO para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task6/executions/01H863H5ZVKZM38M1XQ5YC6X72
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task6/executions/01H863H5ZVKZM38M1XQ5YC6X72> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H863H5ZVGM34ES9FVB04F35M> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo BBO" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/subprocesses/subprocess1/executions/01H865P2543XTW5VAFGR1MAQXM
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/subprocesses/subprocess1/executions/01H865P2543XTW5VAFGR1MAQXM> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                        bpeo:SubProcessExecution ,
+                                                                                                                                                                        <http://www.example.com#subprocess1> ;
+                                                                                                                                                               event:time <http://purl.org/saeg/ontologies/bpeo/times/01H865P254DPVQ78PZQ94GGQG8> ;
+                                                                                                                                                               bpeo:activityStatus "TERMINATED_BY_EXCEPTION" ;
+                                                                                                                                                               bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864BQKZR6PEK8H4CQTXZPZM> ;
+                                                                                                                                                               bpeo:flow <http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC0SR> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVC8JV> ,
+                                                                                                                                                                         <http://purl.org/saeg/ontologies/bpeo/flows/01H865WMHRZPRRP6DF78JVCRRP> ;
+                                                                                                                                                               bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                               bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                               bbo:name "Revisar artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task1/executions/01H86525XDQD39TJEDN1B6H7BA
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task1/executions/01H86525XDQD39TJEDN1B6H7BA> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task1> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H86525XEVDTEGKFEHSTGS4VY> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864BQKZR6PEK8H4CQTXZPZM> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Submeter artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task2/executions/01H8654NSR9D65SSYXVABKFD3P
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task2/executions/01H8654NSR9D65SSYXVABKFD3P> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task2> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8654NSRYG30AJGV76VEA75K> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864CG6QYDHSEGCZC7B2T70D> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Alocar revisores para artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8656M86H1Q87KNC0JE3920B
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8656M86H1Q87KNC0JE3920B> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8656M86FS7KMDY1JR8JNNJD> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864D8VR9PAD3JHFC4A8819E> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Obter artigo Event Ontology para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8657T7BPMJN0AYS1178Y9ES
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8657T7BPMJN0AYS1178Y9ES> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8657T7BCMAKRFTFE1KHDHH2> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864DV19YC9BJF0PGDSH7YBV> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Obter artigo Event Ontology para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8658X9SKPJ6QZFPVY43VJQW
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8658X9SKPJ6QZFPVY43VJQW> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task5> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H8658X9SRD31HP8W98M24F63> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Obter artigo Event Ontology para avaliar" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865E2ZH7G6PKAYBGYFQR6ZV
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865E2ZH7G6PKAYBGYFQR6ZV> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H865E2ZHRE9994KYJ17YXH7Q> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864D8VR9PAD3JHFC4A8819E> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865FBQ9NC8J4GNYQTN8M39X
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865FBQ9NC8J4GNYQTN8M39X> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H865FBQ9EXP5XHZE6RD43H65> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865GMJQ62CJ2GK36R6WWE0N
+<http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865GMJQ62CJ2GK36R6WWE0N> rdf:type owl:NamedIndividual ,
+                                                                                                                                                           bpeo:TaskExecution ,
+                                                                                                                                                           <http://www.example.com#task6> ;
+                                                                                                                                                  event:time <http://purl.org/saeg/ontologies/bpeo/times/01H865GMJQ8N4Z88TM5PY4HEN6> ;
+                                                                                                                                                  bpeo:activityStatus "TERMINATED_BY_EXCEPTION" ;
+                                                                                                                                                  bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H864DV19YC9BJF0PGDSH7YBV> ;
+                                                                                                                                                  bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H8649RY5E0ZAWKM7A8HVBXPS> ;
+                                                                                                                                                  bbo:name "Submeter avaliação do artigo Event Ontology" .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85TPDEEFSDF2XDYZ726KDN5
+<http://purl.org/saeg/ontologies/bpeo/times/01H85TPDEEFSDF2XDYZ726KDN5> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:start "2023-08-10T19:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T12:30:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85VY0CXXNNJ6N9X91CB2TSJ
+<http://purl.org/saeg/ontologies/bpeo/times/01H85VY0CXXNNJ6N9X91CB2TSJ> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-10T20:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-10T19:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85W3XZEB4K5JZ4288R09RAY
+<http://purl.org/saeg/ontologies/bpeo/times/01H85W3XZEB4K5JZ4288R09RAY> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-11T09:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T09:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85W92GTQ3MDS941DJ3DE3YB
+<http://purl.org/saeg/ontologies/bpeo/times/01H85W92GTQ3MDS941DJ3DE3YB> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-15T18:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T09:30:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85WCJYT66F4RHZ96DEQTQDD
+<http://purl.org/saeg/ontologies/bpeo/times/01H85WCJYT66F4RHZ96DEQTQDD> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-15T18:40:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-15T18:40:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-15T18:40:00"^^xsd:dateTime ;.
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85WGVMW3ZWC8EW781BFE9EM
+<http://purl.org/saeg/ontologies/bpeo/times/01H85WGVMW3ZWC8EW781BFE9EM> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-14T18:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T10:20:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85WK124X5XRKSMYKAXGCC92
+<http://purl.org/saeg/ontologies/bpeo/times/01H85WK124X5XRKSMYKAXGCC92> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-14T18:45:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-14T18:45:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-14T18:45:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85WNA9EH8PCRAVSJSG6GS2N
+<http://purl.org/saeg/ontologies/bpeo/times/01H85WNA9EH8PCRAVSJSG6GS2N> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-16T09:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T11:45:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85WQ441WMMV3WCFKA3GM61S
+<http://purl.org/saeg/ontologies/bpeo/times/01H85WQ441WMMV3WCFKA3GM61S> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-16T10:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-16T10:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-16T10:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85X23CWC8GS9M3VNK8CB68E
+<http://purl.org/saeg/ontologies/bpeo/times/01H85X23CWC8GS9M3VNK8CB68E> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-16T17:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-16T17:30:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-16T17:30:00"^^xsd:dateTime.
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85X58C67Z0DM0KJM7RCGHFM
+<http://purl.org/saeg/ontologies/bpeo/times/01H85X58C67Z0DM0KJM7RCGHFM> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-18T12:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T12:30:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T12:30:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H85ZZA50DCKRN50C632J9YQE
+<http://purl.org/saeg/ontologies/bpeo/times/01H85ZZA50DCKRN50C632J9YQE> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-16T10:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T09:30:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H862QVMVM6ABZ7HCVAAT79PZ
+<http://purl.org/saeg/ontologies/bpeo/times/01H862QVMVM6ABZ7HCVAAT79PZ> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-17T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8634J7RKTWGM9TC8YKEGG2V
+<http://purl.org/saeg/ontologies/bpeo/times/01H8634J7RKTWGM9TC8YKEGG2V> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-17T18:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-17T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8636GX5RWEHHB39HCJAVFB1
+<http://purl.org/saeg/ontologies/bpeo/times/01H8636GX5RWEHHB39HCJAVFB1> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-17T09:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T09:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H863A20YCBVAPG3KN87JRR7A
+<http://purl.org/saeg/ontologies/bpeo/times/01H863A20YCBVAPG3KN87JRR7A> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-18T09:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T09:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T09:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H863BRC9WZ3WWNVB77R0N7HC
+<http://purl.org/saeg/ontologies/bpeo/times/01H863BRC9WZ3WWNVB77R0N7HC> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-18T10:15:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T10:15:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T10:15:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H863DBF3HQ74PRVPBHVHJGYY
+<http://purl.org/saeg/ontologies/bpeo/times/01H863DBF3HQ74PRVPBHVHJGYY> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-18T17:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T09:15:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H863H5ZVGM34ES9FVB04F35M
+<http://purl.org/saeg/ontologies/bpeo/times/01H863H5ZVGM34ES9FVB04F35M> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-18T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T18:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H863RA332DJMT1MT51JFSDMG
+<http://purl.org/saeg/ontologies/bpeo/times/01H863RA332DJMT1MT51JFSDMG> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-18T09:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-18T09:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-18T09:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H864H6403VN113HVKF5ZTBJN
+<http://purl.org/saeg/ontologies/bpeo/times/01H864H6403VN113HVKF5ZTBJN> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-10T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H86525XEVDTEGKFEHSTGS4VY
+<http://purl.org/saeg/ontologies/bpeo/times/01H86525XEVDTEGKFEHSTGS4VY> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-10T19:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-10T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8654NSRYG30AJGV76VEA75K
+<http://purl.org/saeg/ontologies/bpeo/times/01H8654NSRYG30AJGV76VEA75K> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-11T10:30:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T10:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8656M86FS7KMDY1JR8JNNJD
+<http://purl.org/saeg/ontologies/bpeo/times/01H8656M86FS7KMDY1JR8JNNJD> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-11T12:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T12:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-11T12:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8657T7BCMAKRFTFE1KHDHH2
+<http://purl.org/saeg/ontologies/bpeo/times/01H8657T7BCMAKRFTFE1KHDHH2> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-11T12:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T12:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-11T12:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H8658X9SRD31HP8W98M24F63
+<http://purl.org/saeg/ontologies/bpeo/times/01H8658X9SRD31HP8W98M24F63> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-11T11:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T11:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-11T11:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H865E2ZHRE9994KYJ17YXH7Q
+<http://purl.org/saeg/ontologies/bpeo/times/01H865E2ZHRE9994KYJ17YXH7Q> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-16T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-16T18:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-16T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H865FBQ9EXP5XHZE6RD43H65
+<http://purl.org/saeg/ontologies/bpeo/times/01H865FBQ9EXP5XHZE6RD43H65> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-17T09:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-17T09:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-17T09:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H865GMJQ8N4Z88TM5PY4HEN6
+<http://purl.org/saeg/ontologies/bpeo/times/01H865GMJQ8N4Z88TM5PY4HEN6> rdf:type owl:NamedIndividual ,
+                                                                                 time:Instant ;
+                                                                        time:at "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:end "2023-08-17T18:00:00"^^xsd:dateTime .
+
+
+###  http://purl.org/saeg/ontologies/bpeo/times/01H865P254DPVQ78PZQ94GGQG8
+<http://purl.org/saeg/ontologies/bpeo/times/01H865P254DPVQ78PZQ94GGQG8> rdf:type owl:NamedIndividual ,
+                                                                                 time:Interval ;
+                                                                        time:end "2023-08-17T18:00:00"^^xsd:dateTime ;
+                                                                        time:start "2023-08-11T11:00:00"^^xsd:dateTime .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

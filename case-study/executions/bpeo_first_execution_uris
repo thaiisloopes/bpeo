@@ -1,0 +1,53 @@
+## Argument
+http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV
+
+## Performers
+// role1 - Revisor
+http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0
+http://purl.org/saeg/ontologies/bpeo/performers/01H85TG9NCXWVJH4MBVG2X9B7V
+http://purl.org/saeg/ontologies/bpeo/performers/01H85TGWP4EZMZN7H6JGH7CV0H
+
+// role2 - PcChair
+http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908
+
+// role3 - Autor
+http://purl.org/saeg/ontologies/bpeo/performers/01H85THTE8WN2D5ECB612YJAJ9
+
+## ProcessExecution
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC
+
+## TaskExecution
+//Submeter Artigo
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task1/executions/01H85VY0CRHE5AJJVVNWVBN5TH
+
+//Alocar Revisores
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task2/executions/01H85W3XZE7G8135S1ME7VJJ5R
+
+//Obter artigo para avaliar
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85W92GTBY5YX3TNYD9JF64P
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WGVMWNBT0GFB1FF699W0P
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task5/executions/01H85WNA9EJBSEQ6XFD7DB9SVZ
+
+//Submeter avaliação do artigo
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WCJYTPBSG86S6Z14ESXJ9
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WK1244RR3V7WY1CB5FCXS
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task6/executions/01H85WQ441HNXKA6SQ6HY72MQ3
+
+//Selecionar artigo
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task3/executions/01H85X23CWM57YG6VPBPNNQ8M0
+
+//Submeter versão final
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task4/executions/01H85X58C5WJ4K8SDAH8473NYN
+
+## SubProcessExecution
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH
+
+## Flows
+//process execution flow
+http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC
+
+//subprocess execution flow
+http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63BHP
+http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M63DE8
+http://purl.org/saeg/ontologies/bpeo/flows/01H860QEJPG8X0X97DE8M638X0
+

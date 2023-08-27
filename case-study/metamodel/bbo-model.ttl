@@ -1,0 +1,162 @@
+@prefix : <http://www.example.com/> .
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://www.example.com/> .
+
+<http://www.example.com> rdf:type owl:Ontology ;
+                          owl:imports <https://www.irit.fr/recherches/MELODI/ontologies/BBO> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.example.com#expression1
+:expression1 rdf:type owl:NamedIndividual ,
+                      BBO:Expression ;
+             BBO:name "APROVADO" .
+
+
+###  http://www.example.com#inputOutputSpecification
+:inputOutputSpecification rdf:type owl:NamedIndividual ,
+                                   BBO:InputOutputSpecification .
+
+
+###  http://www.example.com#process1
+:process1 rdf:type owl:NamedIndividual ,
+                   BBO:Process ;
+          BBO:has_flowElements :subprocess1 ,
+                               :task1 ,
+                               :task2 ,
+                               :task3 ,
+                               :task4 ;
+          BBO:name "Submissão de artigo" .
+
+
+###  http://www.example.com#resource1
+:resource1 rdf:type owl:NamedIndividual ,
+                    BBO:Resource ;
+           BBO:name "Artigo" .
+
+
+###  http://www.example.com#role1
+:role1 rdf:type owl:NamedIndividual ,
+                BBO:Role ;
+       BBO:is_responsibleFor :subprocess1 ,
+                             :task5 ,
+                             :task6 ;
+       BBO:name "Revisor" .
+
+
+###  http://www.example.com#role2
+:role2 rdf:type owl:NamedIndividual ,
+                BBO:Role ;
+       BBO:is_responsibleFor :task2 ,
+                             :task3 ;
+       BBO:name "PcChair" .
+
+
+###  http://www.example.com#role3
+:role3 rdf:type owl:NamedIndividual ,
+                BBO:Role ;
+       BBO:is_responsibleFor :task1 ,
+                             :task4 ;
+       BBO:name "Autor" .
+
+
+###  http://www.example.com#sequenceFlow0
+:sequenceFlow0 rdf:type owl:NamedIndividual ,
+                        BBO:SequenceFlow ;
+               BBO:has_sourceRef :task1 ;
+               BBO:has_targetRef :task2 .
+
+
+###  http://www.example.com#sequenceFlow1
+:sequenceFlow1 rdf:type owl:NamedIndividual ,
+                        BBO:SequenceFlow ;
+               BBO:has_sourceRef :task2 ;
+               BBO:has_targetRef :subprocess1 .
+
+
+###  http://www.example.com#sequenceFlow2
+:sequenceFlow2 rdf:type owl:NamedIndividual ,
+                        BBO:SequenceFlow ;
+               BBO:has_sourceRef :subprocess1 ;
+               BBO:has_targetRef :task3 .
+
+
+###  http://www.example.com#sequenceFlow4
+:sequenceFlow4 rdf:type owl:NamedIndividual ,
+                        BBO:SequenceFlow ;
+               BBO:has_sourceRef :task3 ;
+               BBO:has_targetRef :task4 .
+
+
+###  http://www.example.com#sequenceFlow5
+:sequenceFlow5 rdf:type owl:NamedIndividual ,
+                        BBO:SequenceFlow ;
+               BBO:has_sourceRef :task5 ;
+               BBO:has_targetRef :task6 .
+
+
+###  http://www.example.com#subprocess1
+:subprocess1 rdf:type owl:NamedIndividual ,
+                      BBO:SubProcess ;
+             BBO:has_flowElements :task5 ,
+                                  :task6 ;
+             BBO:has_ioSpecification :inputOutputSpecification ;
+             BBO:has_sequenceFlow :sequenceFlow1 ;
+             BBO:name "Revisar artigo" .
+
+
+###  http://www.example.com#task1
+:task1 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:name "Submeter artigo" .
+
+
+###  http://www.example.com#task2
+:task2 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:has_sequenceFlow :sequenceFlow0 ;
+       BBO:name "Alocar revisores" .
+
+
+###  http://www.example.com#task3
+:task3 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:has_sequenceFlow :sequenceFlow2 ;
+       BBO:name "Selecionar o artigo" .
+
+
+###  http://www.example.com#task4
+:task4 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:has_sequenceFlow :sequenceFlow4 ;
+       BBO:name "Submeter versão final" .
+
+
+###  http://www.example.com#task5
+:task5 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:name "Obter artigo para avaliar" .
+
+
+###  http://www.example.com#task6
+:task6 rdf:type owl:NamedIndividual ,
+                BBO:Task ;
+       BBO:has_ioSpecification :inputOutputSpecification ;
+       BBO:has_sequenceFlow :sequenceFlow5 ;
+       BBO:name "Submeter avaliação do artigo" .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

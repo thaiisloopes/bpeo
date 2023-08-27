@@ -1,0 +1,44 @@
+## Argument
+http://purl.org/saeg/ontologies/bpeo/arguments/01H861GARH5MR0W404D4QAGGV8
+
+## Performers
+// role1 - Revisor
+http://purl.org/saeg/ontologies/bpeo/performers/01H85TFYNNNYT7PVB3BWKSYAD0
+http://purl.org/saeg/ontologies/bpeo/performers/01H861M8TXKJYFF5C9563ZA6F8
+http://purl.org/saeg/ontologies/bpeo/performers/01H861KQ6BZA5Z2R5G2NMHQT4H
+
+// role2 - PcChair
+http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908
+
+// role3 - Autor
+http://purl.org/saeg/ontologies/bpeo/performers/01H861JRYRH61A9RG1ZKHZN2W3
+
+## ProcessExecution
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE
+
+## TaskExecution
+//Submeter artigo
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task1/executions/01H8634J7CTMWZ917YPZ5WYDWQ
+
+//Alocar revisores
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task2/executions/01H8636GX4P5SGE60SYJKYJJQB
+
+//Obter artigo para avaliar
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863A20Y91894QQARGRSPSGB
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863BRC9SGKG1CXYVCNG36K8
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task5/executions/01H863DBF3ZV6C3MG735W1VBYW
+
+//Submeter avaliação do artigo
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task6/executions/01H863H5ZVKZM38M1XQ5YC6X72
+
+## SubprocessExecution
+http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/subprocesses/subprocess1/executions/01H863RA302G1DZ2T0K6R0EH1N
+
+## Flows
+// process execution flow
+http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX
+
+//subprocess execution flow
+http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYXQRW
+http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX6ZY
+http://purl.org/saeg/ontologies/bpeo/flows/01H8647SF216XVVNT6ZYAYX16X
