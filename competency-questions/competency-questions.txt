@@ -1,0 +1,36 @@
+# P1: Quais são as execuções de atividades (passos) dentro de determinado fluxo de determinada execução de processo?
+# P2: Quais são as execuções de atividade diretas (filhas) de determinada execução de processo?
+# P3: Quais execuções de atividade diretas e indiretas (descendentes) de determinada execução de processo?
+# P4: Quais execuções de atividade executadas em paralelo com determinada execução de atividade?
+# P5: Quais execuções de atividade executadas por determinado executor?
+# P6: Quais execuções de atividade possuem determinado recurso como valor de argumento de entrada?
+# P7: Quais execuções de atividade possuem determinado recurso como valor de argumento de saída?
+# P8: Qual o tipo de determinada execução de atividade, ou seja, é instância de qual elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P9: Quais são as execuções de determinada Tarefa do modelo?
+# P10: Quais são as execuções de determinada Tarefa do modelo em determinada execução de processo?
+# P11: Quais são as execuções de determinado Processo do modelo?
+# P12: Quais são as execuções de determinado SubProcesso do modelo?
+# P13: Quais são as execuções de determinado SubProcesso do modelo em determinada execução de processo?
+# P14: Quais os fluxos de determinada execução de processo?
+# P15: Quantos fluxos tem determinada execução de processo?
+# P16: Quais os fluxos resultantes da divisão (fork/split) de determinado fluxo?
+# P17: Quais os fluxos fundidos (join/merge) em determinado fluxo?
+# P18: Quais os fluxos em paralelo?
+# P19: Quais os fluxos ascendentes de determinado fluxo?
+# P20: Quais os fluxos descendentes de determinado fluxo?
+# P21: Quais os argumentos de entrada e o respectivo valor (recurso) de determinada execução de atividade?
+# P22: Quais os argumentos de saída e respectivo valor (recurso) de determinada execução de atividade?
+# P23: Quem é o executor de determinada execução de atividade?
+# P24: Qual o tempo de determinada execução de atividade?
+# P25: Qual o tempo de determinado fluxo de determinada execução de processo?
+# P26: Qual o fluxo mais longo dentre os fluxos resultantes da divisão (fork/split) de determinado fluxo?
+# P27: Qual o caminho (conjunto de fluxos) mais longo (caminho crítico) de determinada execução de processo?
+# P28: Quais execuções de atividade, com o respectivo tipo (elemento do modelo), do caminho caminho crítico de determinada execução de processo?
+# P29: Qual o tempo médio de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P30: Qual o tempo mínimo de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P31: Qual o tempo máximo de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P32: Quantas vezes foi executado determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P33: Quantas vezes foi executado determinado elemento do modelo (Processo, SubProcesso, Tarefa) por determinado executor?
+# P34: Quem executou mais vezes determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P35: Quem executou em menos tempo determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+# P36: Quem executou em mais tempo determinado elemento do modelo (Processo, SubProcesso, Tarefa)?

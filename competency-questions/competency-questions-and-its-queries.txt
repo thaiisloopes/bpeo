@@ -1,0 +1,284 @@
+# P1: Quais são as execuções de atividades (passos) dentro de determinado fluxo de determinada execução de processo?
+select ?step where {
+    <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> bpeo:step ?step.
+}
+
+# P2: Quais são as execuções de atividade diretas (filhas) de determinada execução de processo?
+select ?execution where {
+    ?execution rdf:type bpeo:ActivityExecution.
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:childExecution ?execution.
+}
+
+# P3: Quais execuções de atividade diretas e indiretas (descendentes) de determinada execução de processo?
+select ?execution where {
+    ?execution rdf:type bpeo:ActivityExecution.
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:childExecutionTransitive ?execution.
+}
+
+# P4: Quais execuções de atividade executadas em paralelo com determinada execução de atividade?
+select ?activity where {
+    ?activity event:time ?time.
+    ?time time:at ?at.
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task5/executions/01H8657T7BPMJN0AYS1178Y9ES> event:time ?time2.
+    ?time2 time:at ?at2.
+    FILTER(?at = ?at2 )
+}
+
+# P5: Quais execuções de atividade executadas por determinado executor?
+select ?execution where {
+    ?execution bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908>.
+}
+
+# P6: Quais execuções de atividade possuem determinado recurso como valor de argumento de entrada?
+select ?execution WHERE {
+    ?execution bpeo:inputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV>.
+}
+
+# P7: Quais execuções de atividade possuem determinado recurso como valor de argumento de saída?
+select ?execution WHERE {
+    ?execution bpeo:outputArgument <http://purl.org/saeg/ontologies/bpeo/arguments/01H85TJDYAC4PKZJY9P0CKR3WV>.
+}
+
+# P8: Qual o tipo de determinada execução de atividade, ou seja, é instância de qual elemento do modelo (Processo, SubProcesso, Tarefa)?
+select ?executionModelType WHERE {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task1/executions/01H85VY0CRHE5AJJVVNWVBN5TH>
+        rdf:type ?executionType.
+    ?executionType rdf:type ?executionModelType.
+}
+
+# P9: Quais são as execuções de determinada Tarefa do modelo?
+select ?execution where {
+    ?execution rdf:type <http://www.example.com#task1>
+}
+
+# P10: Quais são as execuções de determinada Tarefa do modelo em determinada execução de processo?
+select ?execution where {
+    ?execution rdf:type <http://www.example.com#task1>.
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:childExecution ?execution.
+}
+
+# P11: Quais são as execuções de determinado Processo do modelo?
+select ?execution where {
+    ?execution rdf:type <http://www.example.com#process1>.
+}
+
+# P12: Quais são as execuções de determinado SubProcesso do modelo?
+select ?execution where {
+    ?execution rdf:type <http://www.example.com#subprocess1>.
+}
+
+# P13: Quais são as execuções de determinado SubProcesso do modelo em determinada execução de processo?
+select ?execution where {
+    ?execution rdf:type <http://www.example.com#subprocess1>.
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:childExecution ?execution.
+}
+
+# P14: Quais os fluxos de determinada execução de processo?
+select ?flow where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:flow ?flow.
+}
+
+# P15: Quantos fluxos tem determinada execução de processo?
+select (COUNT(?flow) AS ?flows)
+where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:flow ?flow.
+}
+
+# P16: Quais os fluxos resultantes da divisão (fork/split) de determinado fluxo?
+select ?flow where {
+    ?flow bpeo:source <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX>.
+}
+
+# P17: Quais os fluxos fundidos (join/merge) em determinado fluxo?
+select ?flow where {
+    ?flow bpeo:target <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX>.
+}
+
+# P18: Quais os fluxos em paralelo?
+select ?flow where {
+    ?activity bpeo:flow ?flow.
+    ?activity rdf:type <http://www.example.com#subprocess1>.
+    ?flow bpeo:flowStatus "RUNNING".
+}
+
+# P19: Quais os fluxos ascendentes de determinado fluxo?
+select ?flow where {
+    ?flow bpeo:sourceTransitive <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX>.
+}
+
+# P20: Quais os fluxos descendentes de determinado fluxo?
+select ?flow where {
+    ?flow bpeo:targetTransitive <http://purl.org/saeg/ontologies/bpeo/flows/01H864541J8V4KSATKWRG5P3JX>.
+}
+
+# P21: Quais os argumentos de entrada e o respectivo valor (recurso) de determinada execução de atividade?
+select ?inputArgument ?value where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H862QVMQ9WNXVN5YG02KTHFE/tasks/task1/executions/01H8634J7CTMWZ917YPZ5WYDWQ> bpeo:inputArgument ?inputArgument.
+    ?inputArgument bpeo:value ?value.
+}
+
+# P22: Quais os argumentos de saída e respectivo valor (recurso) de determinada execução de atividade?
+select ?outputArgument ?value where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/tasks/task4/executions/01H85X58C5WJ4K8SDAH8473NYN> bpeo:outputArgument ?outputArgument.
+    ?outputArgument bpeo:value ?value.
+}
+
+# P23: Quem é o executor de determinada execução de atividade?
+select ?executor where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/tasks/task6/executions/01H865E2ZH7G6PKAYBGYFQR6ZV> bpeo:executor ?executor.
+}
+
+# P24: Qual o tempo de determinada execução de atividade?
+select ?duration where {
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H864H64070VJV7MZYPRQR2GG/subprocesses/subprocess1/executions/01H865P2543XTW5VAFGR1MAQXM> event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+}
+
+# P25: Qual o tempo de determinado fluxo de determinada execução de processo?
+select (SUM(?duration) as ?flowDuration) where{
+    <http://purl.org/saeg/ontologies/bpeo/flows/01H860KCERZY0XHN59KKFQF0BC> bpeo:step ?step.
+    ?step event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+}
+
+# P26: Qual o fluxo mais longo dentre os fluxos resultantes da divisão (fork/split) de determinado fluxo?
+select ?flow (SUM(?duration) as ?duration) where{
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH> bpeo:flow ?flow.
+    ?flow bpeo:step ?step.
+    ?step event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+} GROUP BY ?flow
+ORDER BY DESC(?duration)
+LIMIT 1
+
+# P27: Qual o caminho (conjunto de fluxos) mais longo (caminho crítico) de determinada execução de processo?
+select ?flow (SUM(?duration) as ?duration) where{
+    <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC> bpeo:flow ?flow.
+    ?flow bpeo:step ?step.
+    ?step event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+} GROUP BY ?flow
+ORDER BY DESC(?duration)
+LIMIT 1
+
+# P28: Quais execuções de atividade, com o respectivo tipo (elemento do modelo), do caminho caminho crítico de determinada execução de processo?
+select ?step ?activityType where {
+    {
+        select ?flow (SUM(?duration) as ?duration) where{
+            <http://purl.org/saeg/ontologies/bpeo/processes/process1/executions/01H85TPDEB8QPVXQAVHD09KMPC/subprocesses/subprocess1/executions/01H85ZZA4Z30CHMD046EGESCDH> bpeo:flow ?flow.
+            ?flow bpeo:step ?step.
+            ?step event:time ?time.
+            ?time time:start ?start.
+            ?time time:end ?end.
+            BIND (?end - ?start AS ?duration)
+        } GROUP BY ?flow
+        ORDER BY DESC(?duration)
+        LIMIT 1
+    }
+    ?flow bpeo:step ?step.
+    ?step rdf:type ?activityType.
+}
+
+# P29: Qual o tempo médio de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select (AVG(?duration) AS ?averageDuration) where {
+    ?execution rdf:type <http://www.example.com#process1>.
+    ?execution event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+}
+
+# P30: Qual o tempo mínimo de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select (MIN(?duration) AS ?minDuration) where {
+    ?execution rdf:type <http://www.example.com#task1>.
+    ?execution event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+}
+
+# P31: Qual o tempo máximo de execução de determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select (MAX(?duration) AS ?maxDuration) where {
+    ?execution rdf:type <http://www.example.com#task1>.
+    ?execution event:time ?time.
+    ?time time:start ?start.
+    ?time time:end ?end.
+    BIND (?end - ?start AS ?duration)
+}
+
+# P32: Quantas vezes foi executado determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select (COUNT(?execution) AS ?executions)
+where {
+    ?execution rdf:type <http://www.example.com#process1>.
+}
+
+# P33: Quantas vezes foi executado determinado elemento do modelo (Processo, SubProcesso, Tarefa) por determinado executor?
+select (COUNT(?execution) AS ?executions)
+where {
+    ?execution rdf:type <http://www.example.com#task2>.
+    ?execution bpeo:executor <http://purl.org/saeg/ontologies/bpeo/performers/01H85THDD06VZ45C6ZDBM1F908>
+}
+
+# P34: Quem executou mais vezes determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select ?executor (count(?execution) as ?count) where {
+    ?execution rdf:type <http://www.example.com#task2>.
+    ?execution bpeo:executor ?executor.
+} GROUP BY ?executor
+ORDER BY DESC(?count)
+LIMIT 1
+
+# P35: Quem executou em menos tempo determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select ?executor ?minDuration
+where
+{
+    {
+        select (MIN(?duration) as ?minDuration)
+        where
+        {
+        	?execution rdf:type <http://www.example.com#task1>.
+        	?execution event:time ?time.
+			?time time:start ?start.
+			?time time:end ?end.
+			BIND (?end - ?start AS ?duration)
+        }
+    }
+	?execution rdf:type <http://www.example.com#task1>.
+	?execution event:time ?time.
+	?time time:start ?start.
+	?time time:end ?end.
+	FILTER (?end - ?start = ?minDuration)
+
+	?execution bpeo:executor ?executor.
+}
+
+# P36: Quem executou em mais tempo determinado elemento do modelo (Processo, SubProcesso, Tarefa)?
+select ?executor ?maxDuration
+where
+{
+    {
+        select (MAX(?duration) as ?maxDuration)
+        where
+        {
+        	?execution rdf:type <http://www.example.com#task1>.
+        	?execution event:time ?time.
+			?time time:start ?start.
+			?time time:end ?end.
+			BIND (?end - ?start AS ?duration)
+        }
+    }
+	?execution rdf:type <http://www.example.com#task1>.
+	?execution event:time ?time.
+	?time time:start ?start.
+	?time time:end ?end.
+	FILTER (?end - ?start = ?maxDuration)
+
+	?execution bpeo:executor ?executor.
+}
